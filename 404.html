@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MoneyB</title>
+    <!--
+      GitHub Pages serves this file for any unknown path. We capture the
+      requested path and forward it to / as ?p=<path>; index.html's restore
+      script reads it and replaces the URL before React Router boots.
+      Limit segmentCount to skip the leading '/<repo>' if you ship under
+      a sub-path: tweak the `1` below to match your base depth.
+    -->
+    <script>
+      (function () {
+        var segmentCount = 1; // Pages sub-path depth: '/MoneyB/' = 1
+        var l = window.location;
+        var pathname = l.pathname.split('/').slice(0, 1 + segmentCount).join('/');
+        var rest = l.pathname.slice(pathname.length);
+        l.replace(
+          l.protocol + '//' + l.host + pathname + '/?p=' +
+          encodeURIComponent(rest) + l.search.replace(/^\?/, '&') + l.hash,
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
